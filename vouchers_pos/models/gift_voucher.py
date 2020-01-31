@@ -70,10 +70,11 @@ class GiftCouponPos(models.Model):
         ('percentage', 'Percentage'),
         ], store=True, default='fixed')
 
-    @api.onchange('voucher_val')
-    def check_val(self):
-        if self.voucher_val > self.voucher.max_value or self.voucher_val < self.voucher.min_value:
-            raise UserError(_("Please check the voucher value"))
+   #comentamos las sigueintes 4 lineas para evitar error de ajuste de porcentaje o cantidad fija en los cupones.
+    #@api.onchange('voucher_val')
+    #def check_val(self):
+        #if self.voucher_val > self.voucher.max_value or self.voucher_val < self.voucher.min_value:
+           # raise UserError(_("Please check the voucher value"))
 
 
 class CouponPartnerPos(models.Model):
